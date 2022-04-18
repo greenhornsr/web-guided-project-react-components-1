@@ -10,12 +10,26 @@
 */
 
 import React, { useState } from 'react';
+// Stop user from incrementing count to greater than 10
 
 function Playground(props) {
   const [count, setCount] = useState(0);
+  const [spinnerOn, setSpinnerOn] = useState(false);
 
-  if (count === 0) {
-    console.log("Alllll by myseeeeelllllllffff!")
+  const updateCount = (num) => {
+    if (count >= 10 || count + num < 0) {
+      return;
+    }
+
+    setCount(count + num);
+  }
+
+  if (spinnerOn) {
+    return (
+      <div>
+        LOADING PLEASE WAIT COMING SOON
+      </div>
+    )
   }
   
   return (
@@ -23,7 +37,9 @@ function Playground(props) {
       <h1>Hello world!!</h1>
       { props.happy ? <div>I'm so happy!</div> : "Ugh, why are Monday's the worst?!" }
       {count}
-      <button onClick={() => setCount(count + 1)}>Increment</button>
+      <button onClick={() => updateCount(1)}>Increment</button>
+      <button onClick={() => updateCount(-1)}>Decrement</button>
+
     </div>
   )
 }
