@@ -28,6 +28,7 @@ function Playground(props) {
     return (
       <div>
         LOADING PLEASE WAIT COMING SOON
+        <button onClick={() => setSpinnerOn(false)}>DATA IS BACK WE'RE READY TO ROCK AND ROLL BAAAAAABY!!!</button>
       </div>
     )
   }
@@ -39,7 +40,7 @@ function Playground(props) {
       {count}
       <button onClick={() => updateCount(1)}>Increment</button>
       <button onClick={() => updateCount(-1)}>Decrement</button>
-
+      <button onClick={() => setSpinnerOn(true)}>LOAD SOME DATA WOOOOO!</button>
     </div>
   )
 }
